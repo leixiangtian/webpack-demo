@@ -49,6 +49,23 @@ module.exports = {
             },
           },
         ]
+      },
+      // 
+      {
+        test: /\.(ttf|eot|svg|woff|woff2)$/i,
+        use: 'url-loader'
+      },
+      // babel-locader 
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+            plugins: ["@babel/plugin-proposal-class-properties"] //@babel/plugin-proposal-class-properties
+          }
+        }
       }
     ],
   },
